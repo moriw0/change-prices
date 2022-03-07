@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { Card, ResourceList, Stack, TextStyle, Thumbnail } from "@shopify/polaris";
 
 import gql from 'graphql-tag';
-import ApplyRandomPrices from "./ApplyRandomPrices";
 import ChangePrices from "./ChangePrices";
 
 const GET_PRODUCTS_BY_ID = gql`
@@ -124,7 +123,6 @@ const ResourceListWithProducts = () => {
               }}
             />
           </Card>
-          {/* <ApplyRandomPrices selectedItems={selectedNodes} onUpdate={refetch} /> */}
           <ChangePrices selectedItems={selectedNodes} onUpdate={refetch} />
         </>
         );
