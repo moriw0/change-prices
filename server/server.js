@@ -8,7 +8,7 @@ import next from "next";
 import Router from "koa-router";
 import cron from 'node-cron';
 
-cron.schedule('0 10 * * * *', () => console.log("定期実行"));
+cron.schedule('0 15 * * * *', () => console.log("定期実行"));
 
 dotenv.config();
 const port = parseInt(process.env.PORT, 10) || 8081;
