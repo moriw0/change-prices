@@ -8,6 +8,7 @@ const img = "https://cdn.shopify.com/s/files/1/0757/9955/files/empty-state.svg";
 
 const Index = () => {
   const [open, setOpen] = useState(false)
+  const [_, setHasResults] = useState(false)
   const emptyState = !store.get('ids');
 
   const handleSelection = (resources) => {
@@ -15,6 +16,12 @@ const Index = () => {
     console.log(resources)
     const idsFromResources = resources.selection.map((product) => product.id);
     store.set('ids', idsFromResources);
+    setHasResults(true)
+  }
+
+  const clearSelection = () => {
+    store.clearAll();
+    setHasResults(false)
   }
 
   return (
@@ -24,6 +31,12 @@ const Index = () => {
           content: 'Select products',
           onAction: () => setOpen(true),
         }}
+        secondaryActions={[
+          {
+            content: 'Clear',
+            onAction: () => {clearSelection()},
+          },
+        ]}
       />
 
       <ResourcePicker // Resource picker component
